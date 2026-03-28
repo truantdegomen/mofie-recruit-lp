@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mofie｜ネイリスト採用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --sand: #E8DFD3;
+  --gold: #C4A265;
+  --gold-light: #D4B87A;
+  --dark: #2C2420;
+  --dark-soft: #4A3F38;
+  --text: #3D342E;
+  --text-light: #7A6E65;
+  --accent: #B8926A;
+  --blush: #F0E6DA;
+  --line-green: #06C755;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: 'Noto Serif JP', serif; }
+.garamond { font-family: 'Cormorant Garamond', serif; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px;
+  background: linear-gradient(170deg, var(--warm-white) 0%, var(--blush) 50%, var(--sand) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196,162,101,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: clamp(22px, 5.5vw, 32px);
+  line-height: 1.7;
+  color: var(--dark);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.5s;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero-sub {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.7s;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.9s;
+}
+
+/* ── CTA BUTTON ── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--line-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(6,199,85,0.3);
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.1s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(6,199,85,0.4);
+}
+
+.cta-btn svg { width: 20px; height: 20px; }
+
+.cta-note {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.3s;
+}
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.floating-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-cta a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--line-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 72px 24px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.section-alt {
+  background: var(--warm-white);
+  max-width: 100%;
+  padding: 72px 24px;
+}
+
+.section-alt .inner { max-width: 680px; margin: 0 auto; }
+
+.section-dark {
+  background: var(--dark);
+  color: var(--sand);
+  max-width: 100%;
+  padding: 72px 24px;
+}
+
+.section-dark .inner { max-width: 680px; margin: 0 auto; }
+
+.section-blush {
+  background: var(--blush);
+  max-width: 100%;
+  padding: 72px 24px;
+}
+
+.section-blush .inner { max-width: 680px; margin: 0 auto; }
+
+/* ── HEADINGS ── */
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  font-size: clamp(20px, 4.5vw, 26px);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  color: var(--dark);
+}
+
+.section-dark h2 { color: var(--sand); }
+
+h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+
+/* ── PAIN POINTS ── */
+.pain-list {
+  list-style: none;
+  margin: 28px 0;
+}
+
+.pain-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 14px;
+  line-height: 1.8;
+  padding-left: 28px;
+  position: relative;
+}
+
+.pain-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── COMPARE TABLE ── */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 13px;
+}
+
+.compare-table th {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-light);
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+}
+
+.compare-table td {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--sand);
+  vertical-align: top;
+}
+
+.compare-table td:first-child {
+  color: var(--text-light);
+  font-size: 12px;
+  width: 45%;
+}
+
+.compare-table td:last-child {
+  font-weight: 500;
+  color: var(--dark);
+}
+
+/* ── NUMBERS GRID ── */
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.number-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.section-dark .number-card {
+  background: rgba(255,255,255,0.06);
+}
+
+.number-card .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.section-dark .number-card .num { color: var(--gold-light); }
+
+.number-card .unit {
+  font-size: 14px;
+  color: var(--gold);
+}
+
+.section-dark .number-card .unit { color: var(--gold-light); }
+
+.number-card .desc {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.section-dark .number-card .desc { color: rgba(232,223,211,0.6); }
+
+.number-card.wide {
+  grid-column: 1 / -1;
+}
+
+/* ── SALARY TABLE ── */
+.salary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.salary-table th {
+  background: var(--dark);
+  color: var(--sand);
+  padding: 10px 12px;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.salary-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--sand);
+  text-align: center;
+}
+
+.salary-table td:first-child { text-align: left; }
+
+.salary-highlight {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 16px;
+}
+
+/* ── MESSAGE BOX ── */
+.message-box {
+  border-left: 3px solid var(--gold);
+  padding: 28px 24px;
+  margin: 28px 0;
+  background: rgba(196,162,101,0.04);
+  border-radius: 0 8px 8px 0;
+}
+
+.message-box p {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.message-box p:last-child { margin-bottom: 0; }
+
+.message-sign {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+/* ── BEFORE/AFTER ── */
+.ba-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin: 20px 0;
+  border: 1px solid var(--sand);
+}
+
+.ba-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ba-content {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+  padding: 12px;
+  background: var(--cream);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.ba-quote {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark);
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+}
+
+/* ── CAREER PATHS ── */
+.career-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin: 12px 0;
+  background: var(--warm-white);
+}
+
+.career-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: rgba(196,162,101,0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.career-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.career-desc {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ── MISMATCH ── */
+.mismatch-item {
+  margin: 24px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(232,223,211,0.2);
+}
+
+.mismatch-item:last-child { border-bottom: none; }
+
+.mismatch-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sand);
+  margin-bottom: 8px;
+}
+
+.mismatch-desc {
+  font-size: 13px;
+  color: rgba(232,223,211,0.7);
+  line-height: 1.9;
+}
+
+/* ── BENEFITS ── */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.benefit-item {
+  font-size: 12px;
+  padding: 12px;
+  background: var(--cream);
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.benefit-item.full { grid-column: 1 / -1; }
+
+/* ── FLOW ── */
+.flow-step {
+  display: flex;
+  gap: 16px;
+  margin: 20px 0;
+  align-items: flex-start;
+}
+
+.flow-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--gold);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.flow-text h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.flow-text p {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ── PHOTO PLACEHOLDER ── */
+.photo-placeholder {
+  width: 100%;
+  height: 200px;
+  background: var(--sand);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 20px 0;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  text-align: center;
+  padding: 72px 24px;
+  background: linear-gradient(170deg, var(--blush) 0%, var(--sand) 100%);
+}
+
+.final-cta h2 {
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta .cta-btn {
+  opacity: 1;
+  animation: none;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: rgba(232,223,211,0.5);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 11px;
+  line-height: 2;
+}
+
+footer .footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: var(--sand);
+  margin-bottom: 12px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
+  50% { box-shadow: 0 4px 32px rgba(6,199,85,0.4); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── FEATURE CARDS ── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.feature-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--sand);
+}
+
+.feature-card-img {
+  width: 100%;
+  height: 140px;
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.feature-card-body {
+  padding: 20px;
+}
+
+.feature-card-body h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.feature-card-body p {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ── FAQ ── */
+.faq-item {
+  border-bottom: 1px solid var(--sand);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.faq-question::after {
+  content: '+';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer-inner {
+  padding: 0 0 20px 0;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ── JOB REQUIREMENTS ── */
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 13px;
+}
+
+.job-table th {
+  background: var(--dark);
+  color: var(--sand);
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+  width: 30%;
+  vertical-align: top;
+}
+
+.job-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--sand);
+  line-height: 1.8;
+  vertical-align: top;
+}
+
+/* ── RESPONSIVE ── */
+@media (min-width: 768px) {
+  section, .section-alt .inner, .section-dark .inner, .section-blush .inner {
+    max-width: 640px;
+  }
+  .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<div class="hero">
+  <div class="hero-logo">mofie</div>
+  <h1>あなたは今の働き方に、<br>本当に<em>納得</em>していますか？</h1>
+  <p class="hero-sub">恵比寿の完全個室サロンで、ネイリストとして新しい働き方を。</p>
+  <span class="hero-badge">急募｜正社員2名募集</span>
+  <a href="https://line.me/R/ti/p/XXXXX" class="cta-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.063-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで相談する
+  </a>
+  <p class="cta-note">見学だけでもOKです</p>
+</div>
+
+<!-- ══════ PAIN POINTS ══════ -->
+<section class="reveal">
+  <div class="section-label">Question</div>
+  <h2>その悩み、あなたの努力が<br>足りないわけじゃありません。</h2>
+  <p style="font-size:14px; color:var(--text-light); margin-bottom:20px;">よくあるサロンの悩みを並べてみます。<br>いくつ当てはまりますか？</p>
+  <ul class="pain-list">
+    <li>施術に集中したいのに、集客もブログもSNSも自分でやらないといけない</li>
+    <li>売上ノルマがあって、お客様のためじゃなく数字のための施術になっている</li>
+    <li>頑張っても給料が上がらない仕組みになっている</li>
+    <li>休みが少ないのに、休日でもLINEの返信を求められる</li>
+    <li>マニュアルがなくて、先輩によって言うことが違う</li>
+    <li>辞めたいけど、次のサロンも同じかもしれないと思って動けない</li>
+  </ul>
+  <p style="font-size:14px; line-height:2;">これらは、あなたの能力や努力の問題ではありません。<br><strong>サロンの仕組みの問題です。</strong></p>
+  <p style="font-size:14px; color:var(--text-light); margin-top:8px;">mofieは、この仕組みそのものを変えました。</p>
+</section>
+
+<!-- ══════ PHOTO ══════ -->
+<div class="photo-placeholder">STORE PHOTO</div>
+
+<!-- ══════ FEATURES (CARD STYLE) ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">Difference</div>
+    <h2>mofieが作った「仕組み」</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - 施術風景</div>
+        <div class="feature-card-body">
+          <h4>集客は会社が全て担当</h4>
+          <p>ブログ更新も個人SNSでの集客も不要。あなたは目の前のお客様に集中するだけ。集客は全て会社が行います。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - 完全個室</div>
+        <div class="feature-card-body">
+          <h4>完全予約制・完全個室</h4>
+          <p>詰め込みゼロ。お一人ずつ丁寧に施術できる環境です。高単価メニューだから、無理な勧誘も不要です。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - オフの日</div>
+        <div class="feature-card-body">
+          <h4>休みの日は完全オフ</h4>
+          <p>年間休日138日・希望休制。休日はLINE・Slackの返信も一切不要。完全にオフにできます。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - マニュアル研修</div>
+        <div class="feature-card-body">
+          <h4>全工程マニュアル化</h4>
+          <p>動画教材＋マンツーマン指導。先輩によって言うことが違うということがありません。迷わず働けます。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - キャッシュレス</div>
+        <div class="feature-card-body">
+          <h4>残業なし・レジ締めなし</h4>
+          <p>完全キャッシュレスでレジ締め不要。残業は月10時間以内。閉店後すぐに帰宅できます。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-img">PHOTO - サポート</div>
+        <div class="feature-card-body">
+          <h4>クレーム対応は全て経営側</h4>
+          <p>クレームが発生した場合は、全て経営側が対応します。スタッフが対応に追われることはありません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ MESSAGE ══════ -->
+<section class="reveal">
+  <div class="section-label">Message</div>
+  <h2>代表からのメッセージ</h2>
+  <div class="message-box">
+    <p>あなたは今の働き方に、どれだけ納得していますか？</p>
+    <p>好きでネイリストになったのに、集客に追われて、数字に追われて、気づいたら「施術が楽しい」と感じる余裕すらなくなっている。そんな人を、私はたくさん見てきました。</p>
+    <p>私がmofieを作ったのは、<strong>好きなことを仕事にしている人ほど、正当に報われるべきだ</strong>と思ったからです。</p>
+    <p>集客は会社がやります。マニュアルがあるから迷いません。休みの日は完全にオフにしてください。あなたの仕事は、目の前のお客様を幸せにすること。それだけです。</p>
+    <p>その代わり、お互いの約束は守ってください。マニュアルに沿った施術をすること。お客様との時間を大切にすること。この約束を守れる関係が、長く一緒に働ける唯一の条件だと思っています。</p>
+    <div class="message-sign">── mofie 代表</div>
+  </div>
+</section>
+
+<!-- ══════ BEFORE/AFTER ══════ -->
+<div class="section-blush">
+  <div class="inner reveal">
+    <div class="section-label">Voice</div>
+    <h2>実際に働き方が変わった<br>スタッフの声</h2>
+    <div class="ba-card">
+      <div class="ba-label">Before</div>
+      <div class="ba-content">※後日スタッフへのヒアリング後に差し替え<br>（前職のサロン形態・月収・勤務状況・悩み）</div>
+      <div class="ba-label">After</div>
+      <div class="ba-content">※後日差し替え<br>（mofie入社後の月収・働き方の変化）</div>
+      <div class="ba-quote">「※スタッフの一言コメントをここに」</div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-label">Before</div>
+      <div class="ba-content">※後日スタッフへのヒアリング後に差し替え</div>
+      <div class="ba-label">After</div>
+      <div class="ba-content">※後日差し替え</div>
+      <div class="ba-quote">「※スタッフの一言コメントをここに」</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ NUMBERS ══════ -->
+<div class="section-dark">
+  <div class="inner reveal">
+    <div class="section-label">Numbers</div>
+    <h2>数字で見るmofie</h2>
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="num">28<span class="unit">万円〜</span></div>
+        <div class="desc">月給（研修後）</div>
+      </div>
+      <div class="number-card">
+        <div class="num">138<span class="unit">日</span></div>
+        <div class="desc">年間休日</div>
+      </div>
+      <div class="number-card">
+        <div class="num">19<span class="unit">日</span></div>
+        <div class="desc">月間勤務日数</div>
+      </div>
+      <div class="number-card">
+        <div class="num">10<span class="unit">h以内</span></div>
+        <div class="desc">月間残業</div>
+      </div>
+      <div class="number-card">
+        <div class="num">3<span class="unit">分</span></div>
+        <div class="desc">恵比寿駅から</div>
+      </div>
+      <div class="number-card">
+        <div class="num">41<span class="unit">万円</span></div>
+        <div class="desc">売上120万時の月収</div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:rgba(232,223,211,0.5); text-align:center; margin-top:12px;">稼働率80%で売上120万円は、現実的に到達可能なラインです。</p>
+  </div>
+</div>
+
+<!-- ══════ SALARY ══════ -->
+<section class="reveal">
+  <div class="section-label">Salary</div>
+  <h2>給与の詳細</h2>
+  <h3>月給（固定）</h3>
+  <table class="salary-table">
+    <tr><th>期間</th><th>基本給</th><th>固定残業代</th><th>月給合計</th></tr>
+    <tr><td>研修中（6ヶ月）</td><td>24万円</td><td>2万円</td><td class="salary-highlight">26万円</td></tr>
+    <tr><td>研修後</td><td>26万円</td><td>2万円</td><td class="salary-highlight">28万円</td></tr>
+  </table>
+  <p style="font-size:11px; color:var(--text-light); margin-top:12px; line-height:1.8;">※ 固定残業代は月15時間分です。15時間残業しないといけないわけではありません。15時間以内の場合でも固定で2万円が支給されます。超過分は別途支給。<br>※ 通勤手当：月額上限2万円（別途支給）</p>
+
+  <h3 style="margin-top:32px;">歩合給（売上連動・目安）</h3>
+  <table class="salary-table">
+    <tr><th>月間売上</th><th colspan="3">月収目安</th></tr>
+    <tr><td>100万円</td><td colspan="3" class="salary-highlight">約35万円</td></tr>
+    <tr><td>110万円</td><td colspan="3" class="salary-highlight">約38万円</td></tr>
+    <tr><td>120万円</td><td colspan="3" class="salary-highlight">約41万円</td></tr>
+  </table>
+</section>
+
+<!-- ══════ CAREER ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">Career</div>
+    <h2>あなたのキャリアは、<br>あなたが選ぶ</h2>
+    <div class="career-card">
+      <span class="career-tag">Pattern A</span>
+      <div class="career-title">ワークライフバランス重視</div>
+      <div class="career-desc">無理なく安定的に働き、5年目で月収45万円</div>
+    </div>
+    <div class="career-card">
+      <span class="career-tag">Pattern B</span>
+      <div class="career-title">マネジメント重視</div>
+      <div class="career-desc">店長として組織を支え、5年目で月収50万円</div>
+    </div>
+    <div class="career-card">
+      <span class="career-tag">Pattern C</span>
+      <div class="career-title">独立準備型</div>
+      <div class="career-desc">技術・経営ノウハウを身につけ、5年目で独立 or FC加盟</div>
+    </div>
+    <div class="career-card">
+      <span class="career-tag">Pattern D</span>
+      <div class="career-title">スクール講師型</div>
+      <div class="career-desc">3年目から講師業を開始、講師売上を加算</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TRAINING ══════ -->
+<section class="reveal">
+  <div class="section-label">Training</div>
+  <h2>「教えてもらえなかった」は、<br>もう終わり。</h2>
+  <p style="font-size:14px; line-height:2; margin-bottom:16px;">入社後6ヶ月間の研修期間があります。研修期間中は契約社員としての契約です。研修を修了したら、改めて正社員として雇用契約を結びます。</p>
+  <p style="font-size:14px; line-height:2; margin-bottom:16px;">全工程をマニュアル化しており、社内用オンライン動画サイト＋マンツーマン指導で進めます。</p>
+  <p style="font-size:14px; line-height:2; margin-bottom:16px;">研修のゴールは明確です。お客様の次回予約率が基準に到達すること。基準に達するまで、会社が責任を持ってサポートします。万が一、研修期間内に届かなかった場合は、期間を延長して引き続きサポートします。</p>
+  <p style="font-size:14px; line-height:2; font-family:'Noto Serif JP',serif; color:var(--dark-soft);">「前のサロンではちゃんと教えてもらえなかった」<br>「ブランクがあって不安」<br><br>そんな方こそ、mofieのマニュアルと研修の価値を感じてもらえると思います。</p>
+</section>
+
+<!-- ══════ PHOTO ══════ -->
+<div class="photo-placeholder">STAFF PHOTO</div>
+
+<!-- ══════ BENEFITS ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">Benefits</div>
+    <h2>福利厚生</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">社会保険完備</div>
+      <div class="benefit-item">産休・育休あり</div>
+      <div class="benefit-item">有給休暇あり（入社半年後から年10日付与）</div>
+      <div class="benefit-item full">特別休暇 年6日（年末年始・GW・お盆に使える有給扱い）</div>
+      <div class="benefit-item full">美容施術 月2時間無料（最大30,000円相当）※整体・美容鍼・ハーブピーリング</div>
+      <div class="benefit-item full">耳つぼジュエリー 何回でも無料（1回3,000円相当）</div>
+      <div class="benefit-item">ネイルオイル無料支給</div>
+      <div class="benefit-item">iPad 1人1台支給</div>
+      <div class="benefit-item">健康診断 年1回</div>
+      <div class="benefit-item full">ランチ補助 月1回（1,500円以内）</div>
+      <div class="benefit-item full">ご飯会 月1回（前の月の売上によってお店のグレードが変わります）</div>
+      <div class="benefit-item">外部研修費補助</div>
+      <div class="benefit-item">社内交流イベント</div>
+      <div class="benefit-item full">店長・マネージャー手当 / 独立支援・FC加盟支援制度</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ MISMATCH ══════ -->
+<div class="section-dark">
+  <div class="inner reveal">
+    <div class="section-label" style="color:var(--gold-light);">Honesty</div>
+    <h2>正直にお伝えします。<br>こんな方にはmofieは合いません。</h2>
+    <p style="font-size:13px; color:rgba(232,223,211,0.6); margin-bottom:28px;">入社してから「思っていたのと違った」となることが、あなたにとっても私たちにとっても、一番もったいないことです。</p>
+    <div class="mismatch-item">
+      <div class="mismatch-title">「自分のやり方でやりたい」方へ。</div>
+      <div class="mismatch-desc">mofieはマニュアルに基づく施術・接客を徹底しています。どのスタッフが担当してもお客様に同じ品質を届けるためです。「自分流でやりたい」という方には窮屈に感じるはずです。</div>
+    </div>
+    <div class="mismatch-item">
+      <div class="mismatch-title">「短期間で辞めるかもしれない」方へ。</div>
+      <div class="mismatch-desc">mofieは研修に6ヶ月かけます。マンツーマンで教え、動画教材を用意し、あなたが成長するために本気で投資します。「とりあえず入ってみる」という前提では、お互いにとって良い結果になりません。</div>
+    </div>
+    <div class="mismatch-item">
+      <div class="mismatch-title">「集客力で勝負したい」方へ。</div>
+      <div class="mismatch-desc">mofieでは集客は会社の仕事です。「自分の集客力で差をつけたい」という方には、その力を発揮する場がありません。</div>
+    </div>
+    <div class="mismatch-item">
+      <div class="mismatch-title">「とにかく稼ぎたい」方へ。</div>
+      <div class="mismatch-desc">施術時間を削って回転率を上げる働き方は、mofieの方針ではありません。お客様一人ひとりに丁寧に向き合うからこそ、高単価でリピートしていただけるのです。</div>
+    </div>
+    <p style="font-size:13px; color:rgba(232,223,211,0.5); margin-top:8px;">合わないことは、悪いことではありません。<br>あなたに合う場所は必ずあります。</p>
+  </div>
+</div>
+
+<!-- ══════ PERSONA ══════ -->
+<section class="reveal">
+  <div class="section-label">Person</div>
+  <h2>こんな方と一緒に働きたい</h2>
+  <ul class="pain-list">
+    <li>マニュアルに沿った施術・接客を「楽だ」と感じられる方</li>
+    <li>学ぶことが好きで、教わったことを素直にやれる方</li>
+    <li>長く腰を据えて、一つの場所で成長したい方</li>
+    <li>チームで支え合いながら働きたい方</li>
+    <li>「お客様に本当に良いものを提供したい」という気持ちがある方</li>
+  </ul>
+  <h3 style="margin-top:32px;">応募資格</h3>
+  <p style="font-size:14px;">ネイリスト技能検定 2級以上 ／ 実務経験 1年以上 ／ 基本的な接客マナーがある方</p>
+</section>
+
+<!-- ══════ FLOW ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">Flow</div>
+    <h2>選考の流れ</h2>
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-text"><h4>LINE問い合わせ</h4><p>LPまたはSNSから</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-text"><h4>LINEでのヒアリング</h4><p>今の働き方や希望条件を伺います。代表が直接対応します</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-text"><h4>働き方資料の送付</h4><p>mofieの考え方や制度をまとめた資料をお送りします</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-text"><h4>Zoom面接</h4><p>資料の内容を一緒に確認しながら、お互いの相性を見る時間です</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-text"><h4>技術確認</h4><p>後日、店舗にて実技を見させていただきます</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">6</div>
+      <div class="flow-text"><h4>内定</h4><p>応募から内定まで2〜3週間程度を予定しています</p></div>
+    </div>
+    <p style="font-size:13px; color:var(--text-light); margin-top:20px;">最初のLINEから、代表が直接やりとりします。<br>見学の前に、まずはメッセージで気軽にお話ししましょう。</p>
+  </div>
+</div>
+
+<!-- ══════ JOB REQUIREMENTS ══════ -->
+<section class="reveal">
+  <div class="section-label">Requirements</div>
+  <h2>募集要項</h2>
+  <table class="job-table">
+    <tr><th>募集職種</th><td>ネイリスト</td></tr>
+    <tr><th>雇用形態</th><td>正社員（研修期間6ヶ月は契約社員）</td></tr>
+    <tr><th>応募資格</th><td>ネイリスト技能検定 2級以上<br>実務経験 1年以上<br>基本的な接客マナーがある方</td></tr>
+    <tr><th>給与</th><td>月給26万円〜28万円＋歩合給<br>（研修中26万 / 研修後28万）<br>※固定残業代 月15時間分 20,000円含む<br>※通勤手当 上限20,000円別途支給</td></tr>
+    <tr><th>昇給</th><td>毎年4月に1万円昇給（1年経過後）</td></tr>
+    <tr><th>勤務時間</th><td>11:00〜21:00（休憩1時間）</td></tr>
+    <tr><th>勤務日数</th><td>月19日</td></tr>
+    <tr><th>休日・休暇</th><td>年間休日138日（希望休制）<br>特別休暇 年6日（年末年始・GW・お盆）<br>有給休暇あり（入社半年後から年10日付与）</td></tr>
+    <tr><th>勤務地</th><td>東京都渋谷区恵比寿西2-8-6<br>ACN恵比寿西ビル7F<br>恵比寿駅 徒歩3分</td></tr>
+    <tr><th>福利厚生</th><td>社会保険完備 / 産休育休 / 健康診断<br>美容施術 月2時間無料 / 耳つぼジュエリー無料<br>ネイルオイル無料支給 / iPad支給<br>ランチ補助 / ご飯会 / 外部研修費補助<br>独立支援・FC加盟支援制度</td></tr>
+  </table>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">FAQ</div>
+    <h2>よくある質問</h2>
+    <div class="faq-item">
+      <button class="faq-question">ブランクがあるのですが大丈夫ですか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">全工程マニュアル化＋マンツーマン指導の研修が6ヶ月あります。ブランクのある方も安心して復帰できる体制を整えています。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">研修期間中にうまくいかなかったらどうなりますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">研修期間を延長して引き続きサポートします。基準に達するまで会社が責任を持ちます。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">人間関係が不安です。スタッフ同士の雰囲気はどうですか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">年代が近いスタッフが多く、仲の良い雰囲気です。月1回のご飯会やお花見・クリスマスパーティなどの交流イベントもあり、自然と距離が縮まる環境です。逆に、スタッフ同士の交流が苦手な方には合わないかもしれません。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">売上が上がらなかったらどうなりますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">ノルマはありません。単価・メニュー・予約は全て会社が管理しているので、施術に集中すれば自然と売上はついてきます。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">休みの日に連絡が来ることはありますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">ありません。LINE・Slackの返信も一切不要です。完全にオフにできます。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">クレームが起きた時はどうなりますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">全て経営側が対応します。スタッフがクレーム対応に追われることはありません。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">自分に合うかどうか不安です。入社前に確認する方法はありますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">LINEで代表が直接やりとりし、働き方資料もお送りします。Zoom面接で詳しくお話しした上で、技術確認は店舗で行いますので、入社前にお互いの相性を確認できます。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">副業はできますか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">競合以外であればOKです。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">見学だけでもいいですか？</button>
+      <div class="faq-answer"><div class="faq-answer-inner">はい。まずはLINEで気軽にご相談ください。話を聞くだけでも大歓迎です。</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ FINAL CTA ══════ -->
+<div class="final-cta">
+  <div class="section-label">Contact</div>
+  <h2>まずは、話すだけでも。</h2>
+  <p>ここまで読んでくださったあなたは、きっと今の働き方に何かしらの違和感を持っている方だと思います。mofieが合うかどうか、一緒に考えましょう。</p>
+  <a href="https://line.me/R/ti/p/XXXXX" class="cta-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.063-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで気軽に相談する
+  </a>
+  <p style="font-size:11px; color:var(--text-light); margin-top:12px;">見学だけでもOKです</p>
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-logo">mofie</div>
+  東京都渋谷区恵比寿西2-8-6 ACN恵比寿西ビル7F<br>
+  恵比寿駅 徒歩3分<br>
+  ネイル × 美容鍼 × ハーブピーリングの総合型美容サロン（完全個室）
+</footer>
+
+<!-- ══════ FLOATING CTA ══════ -->
+<div class="floating-cta" id="floatingCta">
+  <a href="https://line.me/R/ti/p/XXXXX">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.063-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで相談する
+  </a>
+</div>
+
+<script>
+// Floating CTA visibility
+const floatingCta = document.getElementById('floatingCta');
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+  const heroBottom = hero.offsetTop + hero.offsetHeight;
+  floatingCta.classList.toggle('visible', window.scrollY > heroBottom);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
