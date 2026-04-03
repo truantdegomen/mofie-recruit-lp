@@ -570,6 +570,80 @@ h3 {
   margin: 20px 0;
 }
 
+/* ── NOT REQUIRED LIST ── */
+.not-required-list {
+  list-style: none;
+  margin: 24px 0;
+}
+.not-required-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.not-required-list li::before {
+  content: '✕';
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── DAY FLOW ── */
+.day-flow {
+  margin: 28px 0;
+  position: relative;
+}
+.day-flow::before {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--sand);
+}
+.day-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.day-time {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  width: 48px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.day-content {
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  padding: 14px 16px;
+  flex: 1;
+}
+.day-content strong {
+  font-size: 14px;
+  color: var(--dark);
+  display: block;
+  margin-bottom: 4px;
+}
+.day-content p {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* ── FINAL CTA ── */
 .final-cta {
   text-align: center;
@@ -850,6 +924,22 @@ footer .footer-logo {
   </div>
 </div>
 
+<!-- ══════ NOT REQUIRED ══════ -->
+<section class="reveal">
+  <div class="section-label">Not Required</div>
+  <h2>あなたがやらなくて<br>いいこと</h2>
+  <p style="font-size:14px; color:var(--text-light); margin-bottom:4px;">mofieでは、スタッフが「施術」だけに集中できるよう、<br>会社側が徹底的に仕組みを整えています。</p>
+  <ul class="not-required-list">
+    <li>個人SNSでの集客（やりたい方は任意）</li>
+    <li>ブログ更新・口コミ獲得活動</li>
+    <li>クレーム・トラブル対応</li>
+    <li>休日の業務連絡への返信</li>
+    <li>売上ノルマの管理</li>
+    <li>後輩への個別指導（マニュアルで統一）</li>
+    <li>レジ締め（完全キャッシュレス）</li>
+  </ul>
+</section>
+
 <!-- ══════ MESSAGE ══════ -->
 <section class="reveal">
   <div class="section-label">Message</div>
@@ -954,7 +1044,44 @@ footer .footer-logo {
   <p style="font-size:14px; line-height:2; font-family:'Noto Serif JP',serif; color:var(--dark-soft);">「前のサロンではちゃんと教えてもらえなかった」<br>「ブランクがあって不安」<br><br>そんな方こそ、mofieのマニュアルと研修の価値を感じてもらえると思います。</p>
 </section>
 
-<!-- ══════ PHOTO ══════ -->
+<!-- ══════ A DAY ══════ -->
+<div class="section-alt">
+  <div class="inner reveal">
+    <div class="section-label">A Day</div>
+    <h2>1日の流れ</h2>
+    <div class="day-flow">
+      <div class="day-item">
+        <div class="day-time">11:00</div>
+        <div class="day-content"><strong>出勤・開店準備</strong><p>掃除・施術台のセッティング。慌てる必要はありません。</p></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">11:30</div>
+        <div class="day-content"><strong>1人目のお客様</strong><p>カウンセリング → 施術。完全個室でお客様と1対1。予約管理は会社が行います。</p></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">13:30</div>
+        <div class="day-content"><strong>2人目のお客様</strong></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">15:30</div>
+        <div class="day-content"><strong>休憩（1時間）</strong><p>近くのカフェでランチでも。ランチ補助あり。</p></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">16:30</div>
+        <div class="day-content"><strong>3人目のお客様</strong></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">18:30</div>
+        <div class="day-content"><strong>4人目のお客様（最終）</strong></div>
+      </div>
+      <div class="day-item">
+        <div class="day-time">20:30</div>
+        <div class="day-content"><strong>片付け・退勤</strong><p>閉店後すぐ帰宅できます。残業はほぼゼロ。</p></div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--text-light);">※ シフトにより異なります。1日3〜4名の施術が目安です。</p>
+  </div>
+</div>
 
 <!-- ══════ BENEFITS ══════ -->
 <div class="section-alt">
