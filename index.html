@@ -267,6 +267,41 @@ h3 {
   opacity: 0.5;
 }
 
+.pain-group {
+  margin-bottom: 20px;
+}
+.pain-group-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.pain-check-list {
+  list-style: none;
+  margin: 0;
+}
+.pain-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.pain-check-list li::before {
+  content: '☐';
+  font-size: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
 /* ── COMPARE TABLE ── */
 .compare-table {
   width: 100%;
@@ -884,18 +919,36 @@ footer .footer-logo {
   <div class="section-label">Question</div>
   <h2>その悩み、あなたの努力が<br>足りないわけじゃありません。</h2>
   <p style="font-size:14px; color:var(--text-light); margin-bottom:20px;">よくあるサロンの悩みを並べてみます。<br>いくつ当てはまりますか？</p>
-  <ul class="pain-list">
-    <li>施術に集中したいのに、集客もブログもSNSも自分でやらないといけない</li>
-    <li>売上ノルマがあって、お客様のためじゃなく数字のための施術になっている</li>
-    <li>新規のお客様でもリピーターと同じ時間しか取れず、カウンセリングが十分にできない</li>
-    <li>指名歩合だけのシステムで、頑張りが給料に反映されない</li>
-    <li>指名の取り合いで、スタッフ同士の関係がギスギスしている</li>
-    <li>大型サロンのガヤガヤした環境で、常に周りのスタッフに気を遣って疲れる</li>
-    <li>休みが少ないのに、休日でもLINEの返信を求められる</li>
-    <li>マニュアルがなくて、先輩によって言うことが違う</li>
-    <li>クレームが起きても自分一人で対応しなければならない</li>
-    <li>辞めたいけど、次のサロンも同じかもしれないと思って動けない</li>
-  </ul>
+  <div class="pain-group">
+    <div class="pain-group-title">施術・お客様</div>
+    <ul class="pain-check-list">
+      <li>施術に集中したいのに、集客もブログもSNSも自分でやらないといけない</li>
+      <li>売上ノルマがあって、お客様のためじゃなく数字のための施術になっている</li>
+      <li>新規のお客様でもリピーターと同じ時間しか取れず、カウンセリングが十分にできない</li>
+    </ul>
+  </div>
+  <div class="pain-group">
+    <div class="pain-group-title">給与・評価</div>
+    <ul class="pain-check-list">
+      <li>指名歩合だけのシステムで、頑張りが給料に反映されない</li>
+      <li>指名の取り合いで、スタッフ同士の関係がギスギスしている</li>
+    </ul>
+  </div>
+  <div class="pain-group">
+    <div class="pain-group-title">環境・サポート</div>
+    <ul class="pain-check-list">
+      <li>大型サロンのガヤガヤした環境で、常に周りのスタッフに気を遣って疲れる</li>
+      <li>マニュアルがなくて、先輩によって言うことが違う</li>
+      <li>クレームが起きても自分一人で対応しなければならない</li>
+    </ul>
+  </div>
+  <div class="pain-group">
+    <div class="pain-group-title">休日・将来</div>
+    <ul class="pain-check-list">
+      <li>休みが少ないのに、休日でもLINEの返信を求められる</li>
+      <li>辞めたいけど、次のサロンも同じかもしれないと思って動けない</li>
+    </ul>
+  </div>
   <p style="font-size:14px; line-height:2;">これらは、あなたの能力や努力の問題ではありません。<br><strong>サロンの仕組みの問題です。</strong></p>
   <p style="font-size:14px; color:var(--text-light); margin-top:8px;">mofieは、この仕組みそのものを変えました。</p>
 </section>
