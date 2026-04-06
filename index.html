@@ -571,28 +571,48 @@ h3 {
 }
 
 /* ── NOT REQUIRED LIST ── */
+.not-required-group {
+  margin-bottom: 24px;
+}
+.not-required-group-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
 .not-required-list {
   list-style: none;
-  margin: 24px 0;
+  margin: 0 0 8px;
 }
 .not-required-list li {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 0;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--sand);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text);
   line-height: 1.5;
 }
 .not-required-list li::before {
   content: '✕';
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--accent);
   flex-shrink: 0;
-  width: 20px;
+  width: 18px;
   text-align: center;
+  margin-top: 1px;
+}
+.not-required-list li .nr-note {
+  display: block;
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 2px;
 }
 
 /* ── DAY FLOW ── */
@@ -940,22 +960,35 @@ footer .footer-logo {
   <div class="section-label">Not Required</div>
   <h2>あなたがやらなくて<br>いいこと</h2>
   <p style="font-size:14px; color:var(--text-light); margin-bottom:4px;">mofieでは、スタッフが「施術」だけに集中できるよう、<br>会社側が徹底的に仕組みを整えています。</p>
-  <ul class="not-required-list">
-    <li>個人SNSでの集客（やりたい方は任意）</li>
-    <li>集客サイトの運用・更新（HPBの掲載内容・予約枠管理は会社が行います）</li>
-    <li>ブログ更新</li>
-    <li>予約管理（LINEとホットペッパービューティーが連携しているため最小限で済みます）</li>
-    <li>クレーム・トラブル対応</li>
-    <li>休日の業務連絡への返信</li>
-    <li>休日出勤（指名を増やすために出勤する必要はありません）</li>
-    <li>売上ノルマの管理</li>
-    <li>指名の取り合い・スタッフ同士の競争</li>
-    <li>電話対応（施術中に電話が鳴ることはありません）</li>
-    <li>後輩への個別指導（マニュアルで統一）</li>
-    <li>レジ締め（完全キャッシュレス）</li>
-    <li>キャンペーン割引の自己負担（割引分も歩合にプラスして支給）</li>
-    <li>カルテ整理・カルテ出し（予約に紐づいた電子カルテを使用。その日のカルテが自動で表示されます）</li>
-  </ul>
+  <div class="not-required-group">
+    <div class="not-required-group-title">集客・営業</div>
+    <ul class="not-required-list">
+      <li><span>個人SNSでの集客<span class="nr-note">やりたい方は任意</span></span></li>
+      <li><span>集客サイトの運用・更新<span class="nr-note">HPBの掲載内容・予約枠管理は会社が行います</span></span></li>
+      <li>ブログ更新</li>
+      <li>売上ノルマの管理</li>
+      <li>指名の取り合い・スタッフ同士の競争</li>
+    </ul>
+  </div>
+  <div class="not-required-group">
+    <div class="not-required-group-title">休日・働き方</div>
+    <ul class="not-required-list">
+      <li>休日の業務連絡への返信</li>
+      <li><span>休日出勤<span class="nr-note">指名を増やすために出勤する必要はありません</span></span></li>
+      <li>クレーム・トラブル対応</li>
+      <li><span>キャンペーン割引の自己負担<span class="nr-note">割引分も歩合にプラスして支給</span></span></li>
+    </ul>
+  </div>
+  <div class="not-required-group">
+    <div class="not-required-group-title">業務・事務</div>
+    <ul class="not-required-list">
+      <li><span>予約管理<span class="nr-note">LINEとHPBが連携しているため最小限で済みます</span></span></li>
+      <li><span>電話対応<span class="nr-note">施術中に電話が鳴ることはありません</span></span></li>
+      <li><span>後輩への個別指導<span class="nr-note">マニュアルで統一</span></span></li>
+      <li><span>レジ締め<span class="nr-note">完全キャッシュレス</span></span></li>
+      <li><span>カルテ整理・カルテ出し<span class="nr-note">電子カルテで当日分が自動表示されます</span></span></li>
+    </ul>
+  </div>
 </section>
 
 <!-- ══════ VMV ══════ -->
